@@ -32,6 +32,26 @@ class TareaState extends State<Tarea>{
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsets.only(left:20),
+        /*---------------------------------------
+        child: Row(
+
+            children:[
+              if (tst['done'])
+                IconButton(
+                  icon: Icon(Icons.clear),
+                  onPressed: (){click();}
+                )
+              else
+                IconButton(
+                  icon: Icon(Icons.clear),
+                  onPressed: (){click();}
+                ),
+             Text("  "+tst['nombre'])
+
+            ]
+        )
+        */
+
         child: Row(
           children:[
             if (tst['done'])
@@ -58,7 +78,18 @@ class TareaState extends State<Tarea>{
 
 class MyApp extends StatelessWidget {
 
-  var tareaejemplo = { "nombre": "Hola soy una tarea", "done": true};
+  var ListaTareas = {
+    { "nombre": "Tarea 1", "done": true},
+    { "nombre": "Tarea 2", "done": false},
+    { "nombre": "Tarea 3", "done": true},
+    { "nombre": "Tarea 4", "done": false},
+    { "nombre": "Tarea 5", "done": true},
+    { "nombre": "Tarea 6", "done": false},
+    { "nombre": "Tarea 7", "done": true},
+    { "nombre": "Tarea 8", "done": false},
+    { "nombre": "Tarea 9", "done": true},
+    { "nombre": "Tarea 10", "done": false}
+  };
 
 
 
@@ -66,31 +97,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Welcome to Flutter',
+      title: 'TAREAS',
       home: Scaffold(
         appBar: AppBar(
           title: Text('TAREAS'),
         ),
-        body: Center(
-          child: Container(
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
-            child: Row(
-              children:[
-                Tarea(tareaejemplo), //---------------------
+        body: ListView(
+            children:[
+              for (var m in ListaTareas)
+                Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                    ),
+                    child: Row(
+                        children: [Tarea (m)]
+                    )
+                )
+            ]
 
-                /*
-
-                */
-
-
-              ],
-            ),
-          ),
         ),
-      ),
-    );
+        ),
+      );
+    
   }
 }
