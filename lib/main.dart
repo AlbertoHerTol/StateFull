@@ -32,9 +32,25 @@ class TareaState extends State<Tarea>{
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsets.only(left:20),
-        /*---------------------------------------
+        //---------------------------------------
         child: Row(
+            children:[
+              if (tst['done'])
+                FlatButton(
+                    child: Icon(Icons.done),
+                    onPressed: (){click();}
+                )
+              else
+                FlatButton(
+                    child: Icon(Icons.clear),
+                    onPressed: (){click();}
+                ),
+              Text("  "+tst['nombre'])
 
+            ]
+        )
+        /*
+        child: Row(
             children:[
               if (tst['done'])
                 IconButton(
@@ -50,8 +66,8 @@ class TareaState extends State<Tarea>{
 
             ]
         )
-        */
-
+*/
+    /*
         child: Row(
           children:[
             if (tst['done'])
@@ -64,6 +80,8 @@ class TareaState extends State<Tarea>{
             ),
           ]
         )
+
+     */
 
 
     );
@@ -109,7 +127,7 @@ class MyApp extends StatelessWidget {
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.blue,
-                    ),
+                      ),
                     child: Row(
                         children: [Tarea (m)]
                     )
